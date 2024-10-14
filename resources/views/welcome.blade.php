@@ -172,21 +172,36 @@
         </div>
     </body>
 </html> --}}
-<br><br><br>
-<br><br><br>
-<br><br><br>
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ __('Your Website Title') }}</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- إضافة CSS مختلف بناءً على اللغة -->
+    @if(app()->getLocale() == 'ar')
+        <link rel="stylesheet" href="{{ asset('css/rtl.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('css/ltr.css') }}">
+    @endif
+</head>
+<body>
+    <a href="{{ url('/language/en') }}">English</a>
+    <a href="{{ url('/language/ar') }}">العربية</a>
 
 
 
-<a href="{{ url('/language/en') }}">English</a>
-<a href="{{ url('/language/ar') }}">العربية</a>
+    <h1>{{App::getLocale()}}</h1>
+
+
+    <h1>{{__("hi,how are you")}}</h1>
+    <h1>{{__("welcome")}}</h1>
+    <h1>{{__("good luck")}}</h1>
+</body>
+</html>
 
 
 
-<h1>{{App::getLocale()}}</h1>
 
-
-<h1>{{__("hi,how are you")}}</h1>
-<h1>{{__("welcome")}}</h1>
-<h1>{{__("good luck")}}</h1>
 
